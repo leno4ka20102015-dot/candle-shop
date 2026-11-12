@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свечи с душой</title>
+    <style>
+        /* Общие настройки и шрифты */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdfbf7; /* Очень светлый кремовый фон */
+            color: #4a3b32; /* Тёмно-коричневый текст */
+            line-height: 1.6;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: #f4ece1; /* Бежевый */
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 2px solid #e3d5c8;
+        }
+        header h1 {
+            font-size: 3rem;
+            color: #6b4c3a;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #8c7362;
+        }
+
+        /* Секция с товарами */
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid #f0e6db;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-card h3 {
+            font-size: 1.5rem;
+            color: #6b4c3a;
+            margin-bottom: 10px;
+        }
+        .product-card .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8c7362;
+            margin-bottom: 20px;
+        }
+        .product-card button {
+            background-color: #8c7362;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .product-card button:hover {
+            background-color: #6b4c3a;
+        }
+
+        /* Секция "О нас" */
+        .about {
+            background-color: #f4ece1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #6b4c3a;
+        }
+        .about p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #5a4a40;
+        }
+
+        /* Контакты и подвал */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #4a3b32;
+            color: #fdfbf7;
+        }
+        footer h2 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        footer a {
+            color: #f4ece1;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s;
+        }
+        footer a:hover {
+            border-bottom: 1px solid #f4ece1;
+        }
+        footer p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <h1>Свечи с душой</h1>
+        <p>Ручная работа для вашего уюта</p>
+    </header>
+
+    <!-- Товары -->
+    <section class="products">
+        <div class="product-card">
+            <h3>Лаванда</h3>
+            <p class="price">500 руб.</p>
+            <button>Купить</button>
+        </div>
+        <div class="product-card">
+            <h3>Ваниль</h3>
+            <p class="price">600 руб.</p>
+            <button>Купить</button>
+        </div>
+        <div class="product-card">
+            <h3>Хвоя</h3>
+            <p class="price">450 руб.</p>
+            <button>Купить</button>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section class="about">
+        <h2>О нас</h2>
+        <p>Мы создаем свечи из натурального соевого воска с добавлением эфирных масел. Каждая свеча сделана вручную с любовью, чтобы наполнить ваш дом теплом и уютом.</p>
+    </section>
+
+    <!-- Контакты -->
+    <footer>
+        <h2>Связаться с нами</h2>
+        <p>Телефон: <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+        <p>Telegram: <a href="https://t.me/ваш_ник" target="_blank">@ваш_ник</a></p>
+        <p style="margin-top: 20px;">© 2026 Свечи с душой. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
