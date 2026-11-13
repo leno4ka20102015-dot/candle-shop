@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свечи с душой</title>
     <style>
-        /* Общие настройки и шрифты */
+        /* Плавная прокрутка страницы */
+        html {
+            scroll-behavior: smooth;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -13,120 +16,167 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fdfbf7; /* Очень светлый кремовый фон */
-            color: #4a3b32; /* Тёмно-коричневый текст */
+            background-color: #fdfbf7;
+            color: #4a3b32;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Анимация появления элементов */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Шапка сайта */
         header {
-            background-color: #f4ece1; /* Бежевый */
+            background: linear-gradient(135deg, #f4ece1 0%, #e8dac9 100%);
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
             border-bottom: 2px solid #e3d5c8;
+            animation: fadeInUp 1s ease-out;
         }
         header h1 {
-            font-size: 3rem;
-            color: #6b4c3a;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            font-size: 3.5rem;
+            color: #5a3d2b;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #8c7362;
+            font-weight: 300;
         }
 
         /* Секция с товарами */
         .products {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 50px 20px;
+            gap: 40px;
+            padding: 80px 20px;
             flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
         }
         .product-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 30px;
-            width: 300px;
+            width: 320px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid #f0e6db;
+            animation: fadeInUp 0.8s ease-out backwards;
         }
+        /* Задержка анимации для карточек */
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.3s; }
+        .product-card:nth-child(3) { animation-delay: 0.5s; }
+
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(107, 76, 58, 0.15);
+            border-color: #d4c3b3;
         }
         .product-card h3 {
-            font-size: 1.5rem;
-            color: #6b4c3a;
+            font-size: 1.6rem;
+            color: #5a3d2b;
             margin-bottom: 10px;
         }
         .product-card .price {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: #8c7362;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
+        
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Кнопка "Купить" */
         .product-card .buy-btn {
-    display: inline-block;
-    background-color: #8c7362;
-    color: white;
-    text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-}
-.product-card .buy-btn:hover {
-    background-color: #6b4c3a;
-}
+            display: inline-block;
+            background: linear-gradient(135deg, #8c7362, #6b4c3a);
+            color: white;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(107, 76, 58, 0.3);
+        }
+        .product-card .buy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(107, 76, 58, 0.4);
+            background: linear-gradient(135deg, #6b4c3a, #5a3d2b);
+        }
 
         /* Секция "О нас" */
         .about {
             background-color: #f4ece1;
-            padding: 50px 20px;
+            padding: 80px 20px;
             text-align: center;
+            animation: fadeInUp 1s ease-out;
         }
         .about h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #6b4c3a;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #5a3d2b;
         }
         .about p {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: #5a4a40;
+            line-height: 1.8;
         }
 
         /* Контакты и подвал */
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 50px 20px;
             background-color: #4a3b32;
             color: #fdfbf7;
         }
         footer h2 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
         }
         footer a {
             color: #f4ece1;
             text-decoration: none;
             font-weight: bold;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            font-size: 1.1rem;
         }
         footer a:hover {
-            border-bottom: 1px solid #f4ece1;
+            border-bottom: 2px solid #f4ece1;
+            color: #ffffff;
         }
         footer p {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            margin-top: 15px;
+            font-size: 1rem;
+            opacity: 0.7;
         }
     </style>
 </head>
@@ -138,22 +188,23 @@
         <p>Ручная работа для вашего уюта</p>
     </header>
 
-        <!-- Товары -->
+    <!-- Товары -->
     <section class="products">
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=300&auto=format&fit=crop" alt="Свеча Лаванда" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+            <!-- Убедитесь, что имена файлов совпадают с теми, что вы загрузили! -->
+            <img src="lavanda.jpg" alt="Свеча Лаванда">
             <h3>Лаванда</h3>
             <p class="price">500 руб.</p>
             <a href="https://t.me/nikto3253" target="_blank" class="buy-btn">Купить</a>
         </div>
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?q=80&w=300&auto=format&fit=crop" alt="Свеча Ваниль" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="vanil.jpg" alt="Свеча Ваниль">
             <h3>Ваниль</h3>
             <p class="price">600 руб.</p>
             <a href="https://t.me/nikto3253" target="_blank" class="buy-btn">Купить</a>
         </div>
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1605885355864-0b98b98d3d6e?q=80&w=300&auto=format&fit=crop" alt="Свеча Хвоя" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+            <img src="hvoya.jpg" alt="Свеча Хвоя">
             <h3>Хвоя</h3>
             <p class="price">450 руб.</p>
             <a href="https://t.me/nikto3253" target="_blank" class="buy-btn">Купить</a>
@@ -171,9 +222,8 @@
         <h2>Связаться с нами</h2>
         <p>Телефон: <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
         <p>Telegram: <a href="https://t.me/nikto3253" target="_blank">@nikto3253</a></p>
-        <p style="margin-top: 20px;">© 2026 Свечи с душой. Все права защищены.</p>
+        <p style="margin-top: 30px;">© 2026 Свечи с душой. Все права защищены.</p>
     </footer>
 
 </body>
 </html>
-
