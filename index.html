@@ -70,19 +70,19 @@
             color: #8c7362;
             margin-bottom: 20px;
         }
-        .product-card button {
-            background-color: #8c7362;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .product-card button:hover {
-            background-color: #6b4c3a;
-        }
+        .product-card .buy-btn {
+    display: inline-block;
+    background-color: #8c7362;
+    color: white;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+.product-card .buy-btn:hover {
+    background-color: #6b4c3a;
+}
 
         /* Секция "О нас" */
         .about {
@@ -143,17 +143,17 @@
         <div class="product-card">
             <h3>Лаванда</h3>
             <p class="price">500 руб.</p>
-            <button>Купить</button>
+            <a href="https://t.me/никто" target="_blank" class="buy-btn">Купить</a>
         </div>
         <div class="product-card">
             <h3>Ваниль</h3>
             <p class="price">600 руб.</p>
-            <button>Купить</button>
+            <a href="https://t.me/никто" target="_blank" class="buy-btn">Купить</a>
         </div>
         <div class="product-card">
             <h3>Хвоя</h3>
             <p class="price">450 руб.</p>
-            <button>Купить</button>
+            <a href="https://t.me/никто" target="_blank" class="buy-btn">Купить</a>
         </div>
     </section>
 
